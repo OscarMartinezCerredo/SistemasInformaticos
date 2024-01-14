@@ -1,0 +1,73 @@
+ejercicio 3 
+1 git log
+2 mkdir capituloscapitulos/capitulo1.txt
+3 git add .
+4 git commit -m "Añadido capítulo 1."
+5 git log
+//////////////
+1 echo "El flujo de trabajo básico con Git consiste en: 1- Hacer cambios en el repositorio. 2- Añadir los cambios a la zona de intercambio temporal. 3- Hacer un commit de los cambios." > capitulos/capitulo2.txt
+2 git add .
+3 git commit -m "Añadido capítulo 2."
+4 git diff HEAD HEAD-2
+/////////////////////////
+1 echo "Git permite la creación de ramas lo que permite tener distintas versiones del mismo proyecto y trabajar de manera simultanea en ellas." > capitulos/capitulo3.txt
+2 git add .
+3 git commit -m "Añadido capítulo 3."
+4 git diff $(git rev-list --max-parents=0 HEAD) HEAD
+///////////////////
+1 echo "Capítulo 5: Conceptos avanzados" >> indice.txt
+2 git add .
+3 git commit -m "Añadido capítulo 5 al índice."
+4 git log -- indice.txt
+ejercicio 4 
+1 git branch bibliografia
+2 git branch
+////////////
+1 echo "Texto del capítulo 4." > capitulos/capitulo4.txt
+2 git add capitulos/capitulo4.txt
+3 git commit -m "Añadido capítulo 4."
+4 git log --all --graph --oneline
+///////////////////////////////////
+1 git checkout bibliografia
+2 echo "● Chacon, S. and Straub, B. Pro Git. Apress." > bibliografia.txt
+3 git add bibliografia.txt
+4 git commit -m "Añadida primera referencia bibliográfica."
+5 git log --all --graph --oneline
+////////////////////////////////////
+1 git checkout master
+  git merge bibliografia
+2 git log --all --graph --oneline
+3 git branch -d bibliografia
+4 git log --all --graph --oneline
+//////////////////////////////
+1 git branch bibliografia
+2 git checkout bibliografia
+3 echo "● Scott Chacon and Ben Straub. Pro Git. Apress." > bibliografia.txt
+echo "● Ryan Hodson. Ry’s Git Tutorial. Smashwords (2014)" >> bibliografia.txt
+4 git add bibliografia.txt
+git commit -m "Añadida nueva referencia bibliográfica."
+5 git checkout master
+6 echo "● Chacon, S. and Straub, B. Pro Git. Apress." > bibliografia.txt
+echo "● Loeliger, J. and McCullough, M. Version control with Git. O’Reilly." >> bibliografia.txt
+7 git add bibliografia.txt
+git commit -m "Añadida nueva referencia bibliográfica."
+8 git merge bibliografia
+9 git add bibliografia.txt
+git commit -m "Resuelto conflicto de bibliografía."
+10 git log --all --graph --oneline
+////////////////////////////
+ejercicio 5 
+git remote add origin https://github.com/OscarMartinezCerredo/SistemasInformaticos.git
+git remote -v
+///////////////////
+git push -u origin master
+//////////////////////
+git clone https:https://github.com/OscarMartinezCerredo/SistemasInformaticos.git
+3echo "" > autores.txt
+echo "" >> autores.txt
+git add autores.txt
+git commit -m "Añadido autor."
+git push origin master
+
+
+
